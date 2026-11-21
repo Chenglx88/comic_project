@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "单镜提示词",
+  "type": "object",
+  "required": [
+    "shot_id",
+    "protagonist",
+    "character_lock_ref",
+    "character_lock_digest",
+    "seed",
+    "text2img",
+    "img2video",
+    "consistency"
+  ],
+  "properties": {
+    "shot_id": {"type": "string", "pattern": "^S\\d{3}$"},
+    "protagonist": {"type": "string", "enum": ["undecided", "lie", "mirror"]},
+    "character_lock_ref": {"type": "string", "minLength": 5},
+    "character_lock_digest": {"type": "string", "minLength": 8},
+    "seed": {"type": "integer", "minimum": 0},
+    "text2img": {
+      "type": "object",
+      "required": ["prompt", "negative_prompt", "params"],
+      "properties": {
+        "prompt": {"type": "string", "minLength": 10},
+        "negative_prompt": {"type": "string", "minLength": 3},
+        "params": {"type": "object"}
+      }
+    },
+    "img2video": {
+      "type": "object",
+      "required": ["prompt", "first_frame", "last_frame", "params"],
+      "properties": {
+        "prompt": {"type": "string", "minLength": 10},
+        "first_frame": {"type": "string"},
+        "last_frame": {"type": "string"},
+        "params": {"type": "object"}
+      }
+    },
+    "consistency": {
+      "type": "object",
+      "required": ["method", "reference_image"],
+      "properties": {
+        "method": {"type": "string", "enum": ["text2img", "img2img"]},
+        "reference_image": {"type": "string"}
+      }
+    },
+    "notes": {"type": "string"}
+  },
+  "x-constraints": {
+    "first_shot_method": "text2img",
+    "later_shot_method": "img2img"
+  }
+}

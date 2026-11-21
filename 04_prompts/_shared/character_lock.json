@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "updated": "2026-11-21",
+  "notes": "未定选阶段 seed_range 为 null、prompt_prefix 为 pending。定选后由用户补全色值、seed 区间与真实前缀，并重算 character_lock_digest。",
+  "protagonists": {
+    "lie": {
+      "display_name": "烈",
+      "visual_anchors": ["蓬乱红发", "右颊一道疤", "护额纹样"],
+      "palette": {
+        "status": "pending",
+        "hair": null,
+        "skin": null,
+        "primary": null,
+        "accent": null
+      },
+      "outfit": {
+        "demo": "卷起袖子的现代校服",
+        "per_realm": "pending"
+      },
+      "expressions": ["坚定", "错愕", "微笑", "怒", "沉思"],
+      "seed_range": null,
+      "reference_images": [],
+      "prompt_prefix": "pending"
+    },
+    "mirror": {
+      "display_name": "镜",
+      "visual_anchors": ["银灰短发", "左眼单片镜", "黑色手套"],
+      "palette": {
+        "status": "pending",
+        "hair": null,
+        "skin": null,
+        "primary": null,
+        "accent": null
+      },
+      "outfit": {
+        "demo": "抱臂的现代校服",
+        "per_realm": "pending"
+      },
+      "expressions": ["平静", "好奇", "担忧", "冷峻", "释然"],
+      "seed_range": null,
+      "reference_images": [],
+      "prompt_prefix": "pending"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "shots": [
+    "shot_id",
+    "beat",
+    "scene",
+    "shot_size",
+    "camera_move",
+    "duration_sec",
+    "action",
+    "dialogue_id",
+    "prompt_file",
+    "reference_shot"
+  ],
+  "dialogue": [
+    "dialogue_id",
+    "character",
+    "text",
+    "emotion",
+    "duration_sec"
+  ],
+  "foley": [
+    "cue_id",
+    "shot_id",
+    "type",
+    "description",
+    "timing"
+  ],
+  "constraints": {
+    "shot_count": [40, 60],
+    "shot_duration_sec": [3, 8],
+    "total_duration_sec": [170, 190],
+    "prompt_file_pattern": "^S\\d{3}\\.json$"
+  }
+}

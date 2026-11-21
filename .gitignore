@@ -1,0 +1,30 @@
+# 任务进度与判决账本：本地状态，不进版本历史
+.state/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 凭据
+.env
+.env.*
+*.key
+*.pem
+credentials*
+
+# 可再生成的渲染产物（资产库 05_assets 不忽略）
+06_render/keyframes/*.png
+06_render/keyframes/*.jpg
+06_render/videos/*.mp4
+06_render/videos/*.wav
+06_render/episodes/*.mp4
+
+# 资产库：只提交 manifest/profile/ledger/SRT，不提交大图/大音频
+05_assets/**/*.png
+05_assets/**/*.jpg
+05_assets/**/*.jpeg
+05_assets/**/*.webp
+05_assets/**/*.wav
+05_assets/**/*.mp3
+05_assets/**/*.flac
+05_assets/**/*.m4a
