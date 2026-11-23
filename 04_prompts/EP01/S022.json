@@ -1,0 +1,32 @@
+{
+  "shot_id": "S022",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120210,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年面前浮现黄铜词法分析器与悬浮发光语法树，语法树节点自下而上逐层点亮，少年抬眼注视，编译熔炉炉前平台，中景，人物偏左，语法树向画面右侧展开，语法树青蓝冷光为主光，炉口暖橙作轮廓背光，2D anime cel shading, clean lineart",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.5
+    }
+  },
+  "img2video": {
+    "prompt": "词法分析器与语法树在少年面前逐层浮现点亮，少年缓步向前，镜头跟随前移",
+    "first_frame": "06_render/keyframes/EP01_computer_S022_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0,
+      "fps": 24
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "落盘 04_prompts/EP01/S022.json；以首镜 S001 关键帧为 img2img 参考生成 S022 关键帧后再驱动视频；正文不重复描写外观，外观由锁前缀与参考帧保证；对应 D022。"
+}

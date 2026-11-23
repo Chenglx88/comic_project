@@ -54,7 +54,7 @@ python3 .claude/scripts/validate.py prompts 04_prompts/EPnn
 
 ## 禁止
 
-- 不调用 NovelAI、ComfyUI、可灵等外部 API。
+- 不调用任何外部图像/视频 API。
 - 不改分镜表、剧本、schema 或角色锁。
 - 不省略 `character_lock_ref` / `character_lock_digest` / `seed`。
 - 不在主角定选后继续写另一主角的提示词。

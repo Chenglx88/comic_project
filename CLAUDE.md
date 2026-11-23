@@ -31,9 +31,9 @@
 | 方案 §6 的目录已存在 | 由本次配置建立；以 README §1 为准 | `find . -maxdepth 1 -type d \| sort` |
 | 方案 §4.6 写 `character_sheet.md` | 实际为 `04_prompts/_shared/character_lock.json` | `ls 04_prompts/_shared/` |
 | 方案附录 A 的模型名与价格为 2026 公开信息 | 可能过期；运行时必须 pin 明确模型 ID | `grep -n '2026' comic_project_plan.md` |
+| 方案 §4.3 写 L1 用腾讯混元旧 CAM API | 旧模型已下线；实际用 TokenHub `hy4` + `web_search_options` | `grep -n 'TokenHub' 07_pipeline/config/env.example` |
 | 3 分钟是 1 次生成 | 实际为 40-60 个镜头拼接 | `grep -n '40~60' comic_project_plan.md` |
 | 主角已定 | `protagonist.json` 默认 `undecided` | `cat 04_prompts/_shared/protagonist.json` |
-| 本仓库有历史可回滚 | `git init` 后尚无任何提交 | `git log --oneline -1` |
 
 ## §3 调度规则
 
@@ -76,7 +76,7 @@
 
 | 任务类型 | 代理 | 输入 | 输出 |
 |:--|:--|:--|:--|
-| 专业数据采集 | `data-curator` | 专业、URL、年份 | `01_data/structured/`、`01_data/rankings/` |
+| 专业数据采集 | `data-curator` | 专业、URL、年份 | `01_data/structured/` |
 | 单集剧本 | `scriptwriter` | 数据、圣经、主角配置 | `02_script/episodes/` |
 | 分镜三表 | `storyboard-director` | 单集剧本 JSON | `03_storyboard/EPnn/` |
 | 镜头提示词 | `prompt-engineer` | 分镜、角色锁、模板 | `04_prompts/EPnn/` |
@@ -97,7 +97,7 @@
 
 | 代理 | 触发 | 写面 |
 |:--|:--|:--|
-| `data-curator` | 需要专业课程/导师/就业数据 | `01_data/` |
+| `data-curator` | 需要专业课程/就业数据 | `01_data/` |
 | `scriptwriter` | 写或改单集剧本 | `02_script/episodes/` |
 | `storyboard-director` | 剧本定稿后拆分镜 | `03_storyboard/EPnn/` |
 | `prompt-engineer` | 分镜表就绪后生成提示词 | `04_prompts/EPnn/` |
@@ -122,7 +122,7 @@
 |:--|:--|
 | 写 `04_prompts/EPnn/S*.json` 必须引用角色锁并带 lock digest | 不锁脸，40-60 个镜头跨集必崩 |
 | 数据每条必须带 `source_url` + `retrieved_at` + `year` | 面向高中生，错数据比没数据更糟 |
-| 导师排名只能写成「三项硬指标综合画像」，不得称官方榜单 | 大学导师无官方统一排名 |
+| 不采集、不展示导师信息 | 本期内容只做课程与就业，避免不可核验的导师画像 |
 | 已定稿产物不得原地覆盖，版本号递增 | 保住回滚与对拍能力 |
 | 不得把标称上下文当有效上下文 | 国产模型实测有效窗口低于标称 |
 | 未跑 `validate.py gate EPnn` 不得说该集完成 | 无验证的「完成」等于静默降级 |

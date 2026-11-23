@@ -25,10 +25,19 @@
     "description",
     "timing"
   ],
+  "overlays": [
+    "overlay_id",
+    "start_sec",
+    "end_sec",
+    "kind",
+    "title",
+    "body"
+  ],
   "constraints": {
     "shot_count": [40, 60],
     "shot_duration_sec": [3, 8],
-    "total_duration_sec": [170, 190],
-    "prompt_file_pattern": "^S\\d{3}\\.json$"
+    "total_duration_sec": [200, 220],
+    "prompt_file_pattern": "^S\\d{3}\\.json$",
+    "overlay_kinds": {"course": 5, "employment": 5}
   }
 }

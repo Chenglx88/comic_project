@@ -1,6 +1,7 @@
 {
-  "selected": "undecided",
+  "selected": "lie",
   "candidates": ["lie", "mirror"],
-  "decision_rule": "EP01 双版本试播后由用户定选；未定选前所有产物保持 undecided，不硬编码任一角色。",
-  "updated": "2026-11-21"
+  "decision_rule": "EP01 由用户定选 lie；双版本策略未启用。定选后所有产物统一写 lie，不再保留 undecided。",
+  "selected_at": "2026-11-22",
+  "updated": "2026-11-22"
 }

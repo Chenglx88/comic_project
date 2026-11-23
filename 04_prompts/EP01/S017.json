@@ -1,0 +1,31 @@
+{
+  "shot_id": "S017",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120017,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, standing on a floating cloud platform and gazing upward as four colossal light pillars begin to rise from the boundless cloud sea, each pillar formed of four stacked glowing rings marking the TCP/IP layers, luminous data packets streaming upward between the pillars, network cloud sea realm, extreme wide shot, high angle looking down across the glowing cloud sea, tiny figure on the platform in the lower frame, cool cyan and deep blue tones with warm golden pillar light, ethereal rim light, 2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.55
+    }
+  },
+  "img2video": {
+    "prompt": "四层光柱自云海中依次升起并贯穿云层，光点沿柱身上行，少年立于浮台仰望，镜头自高处向光柱俯冲推近",
+    "first_frame": "06_render/keyframes/EP01_computer_S017_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 6.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "网络云海 beat2 定场镜。大全景环境主导、人物占比极小，denoise 放宽至 0.55 保场景自由度；分镜 reference_shot=S016 仅作连续性提示，一致性参考按规则仍指向 S001 关键帧。"
+}

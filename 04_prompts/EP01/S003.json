@@ -1,0 +1,31 @@
+{
+  "shot_id": "S003",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120000,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 中景，少年抬手向上一挥，漫天漂浮的发光符文被牵引汇聚，在其头顶上方组成一个巨大问号形光阵，修仙境·功法阵台，环形石阵与虚化浮空山为背景，人物居中构图，头顶上方留白容纳问号光阵，黄昏暖橙侧逆光，符文青蓝辉光，2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.55
+    }
+  },
+  "img2video": {
+    "prompt": "少年抬手一挥，漫天符文流动汇聚成巨大问号，镜头环绕人物缓慢旋转（环绕）",
+    "first_frame": "06_render/keyframes/EP01_computer_S003_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 4.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "分镜 reference_shot=S002 仅表叙事衔接；一致性锚点按管线规则统一指向 S001 定标帧。4 秒只写一个主动作（抬手汇聚）。"
+}

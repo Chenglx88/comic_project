@@ -1,0 +1,31 @@
+{
+  "shot_id": "S036",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120036,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, hands at frame edges steadying the unfurled xianxia destiny scroll, extreme close-up on the parchment, glowing golden numerals 18-32K materializing line by line above the scroll, a vertical foundation-software vocation column igniting beneath the numerals, drifting gold light motes, dark ink background with gold accents, centered close-up composition, warm candlelight from lower left, 2D anime cel shading, clean lineart",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, watermark, signature, photorealistic, 3d render, gibberish glyphs, garbled numbers, random letters",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.5
+    }
+  },
+  "img2video": {
+    "prompt": "金色光纹数字 18-32K 在卷轴表面逐字浮现并悬浮，光尘微粒缓缓上浮，镜头固定",
+    "first_frame": "06_render/keyframes/EP01_computer_S036_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "与 S033 同构的薪资特写，数字换为 18-32K、栏目为基础软件；负面词已移除 text 以允许剧情数字浮现，其余处理同 S033。"
+}

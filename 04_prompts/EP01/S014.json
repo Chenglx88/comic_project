@@ -1,0 +1,31 @@
+{
+  "shot_id": "S014",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120014,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年立于悬浮界面旁注视，巨大的进程状态图在半空展开，运行、就绪、阻塞三类状态节点由光弧相连，数条线程队列如光带自状态图下方延伸，操作系统结界内部，中景，人物偏右、左侧留出展开的状态图，冷青色界面光为主、人物轮廓带微弱暖色边光，2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.6
+    }
+  },
+  "img2video": {
+    "prompt": "进程状态图节点依次点亮、光弧连接，线程队列如光带横向展开，烈注视界面，镜头缓推",
+    "first_frame": "06_render/keyframes/EP01_computer_S014_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "中景。锚点同 S001 首镜关键帧；denoise 0.60。5 秒推镜，主动作为状态图与线程队列展开。"
+}

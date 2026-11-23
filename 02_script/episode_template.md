@@ -19,7 +19,7 @@
   "episode_id": "EP01",
   "major": "计算机科学与技术",
   "major_en": "computer",
-  "realm": "机枢城",
+  "realm": "修仙境",
   "protagonist": "undecided",
   "logline": "一句话钩子，至少 10 字",
   "beats": [
@@ -32,7 +32,7 @@
   "knowledge_points": [
     {"id": "K1", "title": "", "explain": "", "misconception": "", "source_ref": ""}
   ],
-  "characters": ["烈", "镜", "导师"],
+  "characters": ["试炼者", "藏经阁老者"],
   "mentor_portrait": {
     "imagery": "",
     "metrics": ["人才称号", "引用与 h-index", "国家级奖项与学科评估"],

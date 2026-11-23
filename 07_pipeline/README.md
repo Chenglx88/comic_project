@@ -1,15 +1,26 @@
 # 07_pipeline
 
-产品运行时流水线目录。当前只有分层提示词模板，尚无代码。
+产品运行时流水线目录。Phase 1 已落地配置、统一 LLM 客户端与 L1-L3；L4-L6 待建。
+
+## 已落地模块（Phase 1）
+
+| 文件 | 对应层 | 职责 |
+|:--|:--|:--|
+| `config.py` | 全局 | 安全加载 `.env`、routing、脱敏快照 |
+| `llm.py` | L1-L3 | OpenAI 兼容客户端，模型 ID 来自配置，失败重试 |
+| `l1.py` | L1 | 检索与结构化专业数据 |
+| `l2.py` | L2 | 单集剧本生成与校验 |
+| `l3.py` | L3 | 分镜三表生成、CSV 写出与校验 |
+| `preflight.py` | 全局 | env 键、routing、ffmpeg/ffprobe 预检 |
+| `cli.py` | 全局 | `preflight` / `l1` / `l2` / `l3` 子命令 |
+| `tests/test_phase1.py` | 离线测试 | 配置、JSON、校验、CSV、重试，不触网 |
 
 ## 计划中的模块
 
 | 文件 | 对应层 | 职责 |
 |:--|:--|:--|
-| `data_pipeline.py` | L1 | 检索与结构化专业数据 |
-| `llm_router.py` | L1-L6 | 按任务类型路由模型，pin 明确模型 ID |
-| `prompt_builder.py` | L4 | 注入角色锁、生成单镜提示词包 |
-| `compose.py` | L5 | 汇总关键帧、视频、音频，输出成片 |
+| 待建 | L4 | 注入角色锁、生成单镜提示词包 |
+| 待建 | L5 | 汇总关键帧、视频、音频，输出成片 |
 
 ## 目录
 

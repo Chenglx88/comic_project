@@ -1,0 +1,65 @@
+{
+  "episode": "EP01",
+  "total": 46,
+  "size": "1920x1080",
+  "audit_rounds": [
+    "v1 全量豆包抽检",
+    "fix1 复检 23 镜",
+    "retry2 英文提示词复检 13 镜",
+    "final 残留抽检"
+  ],
+  "known_clean": [
+    "S002",
+    "S003",
+    "S009",
+    "S016",
+    "S017",
+    "S018",
+    "S023",
+    "S025",
+    "S026",
+    "S027",
+    "S030",
+    "S033",
+    "S036",
+    "S037",
+    "S038",
+    "S043",
+    "S045"
+  ],
+  "residual": [
+    {
+      "shot_id": "S005",
+      "level": "major",
+      "problem": "右手少指（可见4指）；长袍与锁定的短袍略有偏差"
+    },
+    {
+      "shot_id": "S010",
+      "level": "major",
+      "problem": "护额为纯金双环；侧身角度未露出右颊疤"
+    },
+    {
+      "shot_id": "S012",
+      "level": "info",
+      "problem": "视觉复核通过；豆包复检网络超时未完成"
+    },
+    {
+      "shot_id": "S015",
+      "level": "major",
+      "problem": "压在阵上的手可见4指"
+    },
+    {
+      "shot_id": "S034",
+      "level": "major",
+      "problem": "疤痕位置/护额结构/长袍与锁定略有偏差"
+    },
+    {
+      "shot_id": "S042",
+      "level": "major",
+      "problem": "长袍与锁定短袍略有偏差"
+    }
+  ],
+  "contact_sheet": "06_render/EP01/keyframes_contact_v3.png",
+  "manifest": "06_render/EP01/keyframes_manifest.json",
+  "dir_digest": "44cb49b49dc87e4761d85b90e0dff0d23c21b39714b8f9fd8a7bcc0608c25b7f"
+}

@@ -1,0 +1,31 @@
+{
+  "shot_id": "S031",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120031,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年立于去向卷轴前，多面悬浮光屏如折扇般自中心次第展开，屏上流转界面框线与代码光纹，少年抬头环视，去向卷轴·前端界面环，中景，人物居中偏下，光屏环绕上方与两侧，屏光冷青为主光，面部辅以卷轴暖金反光，2D anime cel shading, holographic screens, clean lineart",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.5
+    }
+  },
+  "img2video": {
+    "prompt": "多面悬浮光屏自中心向外依次展开，少年微微仰头环视，镜头缓缓前推",
+    "first_frame": "06_render/keyframes/EP01_computer_S031_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 6.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "中景推镜，单主动作（光屏展开）与 6s 时长匹配；denoising_strength 0.5 优先保人物一致性。场景由算法转前端，冷青屏光延续至 S032 背景以衔接分镜 reference_shot 链。"
+}

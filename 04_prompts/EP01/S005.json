@@ -1,0 +1,31 @@
+{
+  "shot_id": "S005",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120005,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, boy standing small in the lower frame looking up as the first light gate slowly opens, luminous data streams spreading overhead like an unfolding star chart, data structure realm with floating rune arrays and faint grid lines, wide shot, towering gate dominating the background, cool blue-violet gate glow with warm rim light on the boy, 2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.55
+    }
+  },
+  "img2video": {
+    "prompt": "第一重光门缓缓开启，数据流如星图般铺展，镜头缓慢推近",
+    "first_frame": "06_render/keyframes/EP01_computer_S005_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 6.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "本批无 S001，按管线规则一致性锚点固定为首镜关键帧；分镜 reference_shot=S004 仅作叙事衔接，不改变画面参考。推镜速度与 6 秒时长匹配，仅保留光门开启与数据流铺展一个主动作。"
+}

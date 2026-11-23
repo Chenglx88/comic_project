@@ -1,0 +1,21 @@
+{
+  "episode": "EP01",
+  "bgm": [
+    {
+      "path": "05_assets/audio/bgm/EP01_bgm_long_way_to_kunming.mp3",
+      "title": "Long Way To Kunming",
+      "artist": "John Bartmann",
+      "album": "Chinese Valentine",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freemusicarchive.org/music/John_Bartmann/chinese-valentine/long-way-to-kunming/",
+      "retrieved_at": "2026-11-23",
+      "year": 2026,
+      "sha256": "632bdf59875ce10238b244010d760bb3e07c9a172dec6a6f89d9643d5998fedd",
+      "duration_sec": 117.629388,
+      "commercial_use": true,
+      "attribution_required": false
+    }
+  ],
+  "audition": "05_assets/audio/bgm/audition_v1.mp3"
+}

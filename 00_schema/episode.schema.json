@@ -12,12 +12,13 @@
     "beats",
     "knowledge_points",
     "characters",
-    "mentor_portrait",
+    "coverage",
     "next_episode_hook",
     "continuity",
     "sources"
   ],
   "properties": {
+    "version": {"type": "integer", "minimum": 1},
     "episode_id": {"type": "string", "pattern": "^EP\\d{2}$"},
     "major": {"type": "string", "minLength": 2},
     "major_en": {"type": "string", "pattern": "^[a-z0-9_]+$"},
@@ -26,13 +27,13 @@
     "logline": {"type": "string", "minLength": 10},
     "beats": {
       "type": "array",
-      "minItems": 5,
-      "maxItems": 5,
+      "minItems": 4,
+      "maxItems": 4,
       "items": {
         "type": "object",
         "required": ["index", "name", "start_sec", "end_sec", "summary"],
         "properties": {
-          "index": {"type": "integer", "minimum": 1, "maximum": 5},
+          "index": {"type": "integer", "minimum": 1, "maximum": 4},
           "name": {"type": "string"},
           "start_sec": {"type": "number", "minimum": 0},
           "end_sec": {"type": "number", "minimum": 0},
@@ -56,13 +57,12 @@
       }
     },
     "characters": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-    "mentor_portrait": {
+    "coverage": {
       "type": "object",
-      "required": ["imagery", "metrics", "note"],
+      "required": ["courses", "employment"],
       "properties": {
-        "imagery": {"type": "string", "minLength": 5},
-        "metrics": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "note": {"type": "string", "minLength": 4}
+        "courses": {"type": "array", "minItems": 5, "items": {"type": "string"}},
+        "employment": {"type": "array", "minItems": 5, "items": {"type": "string"}}
       }
     },
     "next_episode_hook": {"type": "string", "minLength": 3},
@@ -89,7 +89,6 @@
     }
   },
   "x-constraints": {
-    "beats_duration_total_sec": [170, 190],
-    "mentor_note_must_contain": "综合画像"
+    "beats_duration_total_sec": [200, 220]
   }
 }

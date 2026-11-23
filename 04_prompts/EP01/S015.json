@@ -1,0 +1,31 @@
+{
+  "shot_id": "S015",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120015,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年抬手拨动悬浮的调度队列，队列光片如一排卡片般滑动重排，上方信号量锁状符文亮起金光，神情坚定，操作系统结界内部，近景，人物居中偏左、手部与队列动作清晰，冷青色界面光与金色锁光对比，2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.58
+    }
+  },
+  "img2video": {
+    "prompt": "烈拨动调度队列，队列光片滑动重排，信号量锁随即亮起金光，镜头跟随手部动作",
+    "first_frame": "06_render/keyframes/EP01_computer_S015_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 4.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "近景。锚点同 S001；denoise 0.58，保手部与面部一致性。4 秒跟镜，仅保留拨动队列与信号量锁亮起这一个因果动作。"
+}

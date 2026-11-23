@@ -1,0 +1,31 @@
+{
+  "shot_id": "S039",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120039,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, extreme close-up, luminous glyph-shaped lights condensing from drifting particles, the boy's face in soft focus at the frame edge gazing at the glyphs, cloud-native scroll vision background, close-up composition with the glyph cluster centered, shallow depth of field, cool cyan glyphs with golden sparkles, 2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render, letters, numbers, readable text, logos",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.45
+    }
+  },
+  "img2video": {
+    "prompt": "光尘汇聚成数字形光纹并渐显发亮，微粒缓缓上浮，镜头固定",
+    "first_frame": "06_render/keyframes/EP01_computer_S039_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "薪资数值 12-22K 不由模型生成可读文字（负向已屏蔽 letters/numbers/readable text）；画面以数字形光纹渐显表现，具体数值由后期字幕叠加。reference_shot=S038，同场景连续。"
+}

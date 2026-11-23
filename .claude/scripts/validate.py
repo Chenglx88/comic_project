@@ -5,6 +5,7 @@
   schema                     校验 00_schema/ 自身
   lock [path]                校验角色锁与主角选择一致性
   docs                       校验配置文档、代理卡、skill、settings.json
+  data <path>                校验 L1 结构化专业数据 JSON
   episode <path>             校验单集剧本 JSON
   storyboard <EP目录>        校验 shots/dialogue/foley 三张 CSV
   storyboard-file <path>     校验单张分镜 CSV（供 PostToolUse 使用）
@@ -23,6 +24,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_DIR = ROOT / "00_schema"
@@ -168,7 +170,7 @@ def validate_schemas(report: Report) -> None:
         seen.add(item.get("major_en"))
 
     headers = loaded.get("storyboard_headers.json", {})
-    expected_keys = {"shots", "dialogue", "foley", "constraints"}
+    expected_keys = {"shots", "dialogue", "foley", "overlays", "constraints"}
     if set(headers) != expected_keys:
         report.error(SCHEMA_DIR / "storyboard_headers.json", f"键应为 {sorted(expected_keys)}")
 
@@ -251,6 +253,138 @@ def validate_character_lock(path: Path, report: Report) -> None:
 # ---------------------------------------------------------------- episode
 
 
+def load_expected_coverage(report: Report) -> dict | None:
+    structured, err = read_json(ROOT / "01_data" / "structured" / "computer.json")
+    if err:
+        report.error(ROOT / "01_data" / "structured" / "computer.json", f"JSON 解析失败: {err}")
+        return None
+    try:
+        return {
+            "courses": [item["name"] for item in structured["courses"]],
+            "employment": [item["name"] for item in structured["employment"]["directions"]],
+        }
+    except (KeyError, TypeError) as exc:
+        report.error(ROOT / "01_data", f"L1 数据缺少覆盖字段: {exc}")
+        return None
+
+
+L1_FORBIDDEN_SOURCE_HOSTS = (
+    "zhaosheng.com",
+    "gaokao.com",
+    "eol.cn",
+    "sgpjbg.com.cn",
+    "baijiahao.baidu.com",
+    "sohu.com",
+    "163.com",
+    "zhihu.com",
+)
+
+
+def _l1_text_list(value, minimum: int, maximum: int, where: str, path: Path, report: Report) -> None:
+    if not isinstance(value, list) or not minimum <= len(value) <= maximum:
+        report.error(path, f"{where} 必须为 {minimum}-{maximum} 条")
+    elif not all(nonempty_str(item) for item in value):
+        report.error(path, f"{where} 含空值")
+
+
+def _l1_source(record: dict, where: str, path: Path, report: Report) -> None:
+    url = record.get("source_url")
+    if not isinstance(url, str) or not url.startswith("http"):
+        report.error(path, f"{where}.source_url 必须以 http 开头")
+    else:
+        host = (urlparse(url).hostname or "").lower()
+        if any(host == banned or host.endswith("." + banned) for banned in L1_FORBIDDEN_SOURCE_HOSTS):
+            report.error(path, f"{where}.source_url 不得使用聚合站/自媒体域名")
+        elif urlparse(url).path in ("", "/") and not urlparse(url).query:
+            report.error(path, f"{where}.source_url 必须是具体页面，不能是首页")
+    year = record.get("year")
+    if not is_int(year) or not 2000 <= year <= 2030:
+        report.error(path, f"{where}.year 必须为 2000-2030 整数")
+
+
+def validate_l1_data(path: Path, report: Report) -> None:
+    data, err = read_json(path)
+    if err:
+        report.error(path, f"JSON 解析失败: {err}")
+        return
+    if not isinstance(data, dict):
+        report.error(path, "顶层必须是 JSON 对象")
+        return
+    if data.get("version") != 2:
+        report.error(path, f"version 必须为 2（当前 {data.get('version')!r}）")
+    for field in ("major", "major_en", "realm", "retrieved_at"):
+        if not nonempty_str(data.get(field)):
+            report.error(path, f"缺少 {field}")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(data.get("retrieved_at", ""))):
+        report.error(path, "retrieved_at 必须为 YYYY-MM-DD")
+    if "mentors" in data:
+        report.error(path, "L1 不再采集导师信息，不得出现 mentors")
+
+    courses = data.get("courses")
+    if not isinstance(courses, list) or len(courses) != 5:
+        report.error(path, "courses 必须为 5 条")
+    else:
+        for index, course in enumerate(courses):
+            where = f"courses[{index}]"
+            if not isinstance(course, dict):
+                report.error(path, f"{where} 必须是对象")
+                continue
+            for field in ("name", "explain"):
+                if not nonempty_str(course.get(field)):
+                    report.error(path, f"{where}.{field} 不得为空")
+            _l1_text_list(course.get("learning_content"), 3, 5, f"{where}.learning_content", path, report)
+            _l1_text_list(course.get("labs_projects"), 1, 2, f"{where}.labs_projects", path, report)
+            _l1_text_list(course.get("abilities"), 1, 2, f"{where}.abilities", path, report)
+            _l1_source(course, where, path, report)
+
+    employment = data.get("employment")
+    if not isinstance(employment, dict):
+        report.error(path, "缺少 employment")
+    else:
+        directions = employment.get("directions")
+        if not isinstance(directions, list) or len(directions) != 5:
+            report.error(path, "employment.directions 必须为 5 条")
+        else:
+            for index, direction in enumerate(directions):
+                where = f"employment.directions[{index}]"
+                if not isinstance(direction, dict):
+                    report.error(path, f"{where} 必须是对象")
+                    continue
+                for field in ("name", "explain"):
+                    if not nonempty_str(direction.get(field)):
+                        report.error(path, f"{where}.{field} 不得为空")
+                _l1_text_list(direction.get("main_tasks"), 3, 5, f"{where}.main_tasks", path, report)
+                _l1_text_list(direction.get("employers"), 3, 5, f"{where}.employers", path, report)
+                _l1_text_list(direction.get("abilities"), 2, 3, f"{where}.abilities", path, report)
+                if not nonempty_str(direction.get("salary_range")):
+                    report.error(path, f"{where}.salary_range 不得为空")
+                _l1_source(direction, where, path, report)
+        _l1_source(employment, "employment", path, report)
+
+    sources = data.get("sources")
+    if not isinstance(sources, list) or not sources:
+        report.error(path, "sources 至少 1 条")
+    else:
+        for index, source in enumerate(sources):
+            where = f"sources[{index}]"
+            if not isinstance(source, dict):
+                report.error(path, f"{where} 必须是对象")
+                continue
+            url = source.get("url")
+            if not isinstance(url, str) or not url.startswith("http"):
+                report.error(path, f"{where}.url 必须以 http 开头")
+            else:
+                host = (urlparse(url).hostname or "").lower()
+                if any(host == banned or host.endswith("." + banned) for banned in L1_FORBIDDEN_SOURCE_HOSTS):
+                    report.error(path, f"{where}.url 不得使用聚合站/自媒体域名")
+                elif urlparse(url).path in ("", "/") and not urlparse(url).query:
+                    report.error(path, f"{where}.url 必须是具体页面，不能是首页")
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(source.get("retrieved_at", ""))):
+                report.error(path, f"{where}.retrieved_at 必须为 YYYY-MM-DD")
+            if not is_int(source.get("year")) or not 2000 <= source.get("year") <= 2030:
+                report.error(path, f"{where}.year 必须为 2000-2030 整数")
+
+
 def validate_episode(path: Path, report: Report):
     data, err = read_json(path)
     if err:
@@ -266,13 +400,18 @@ def validate_episode(path: Path, report: Report):
         "beats",
         "knowledge_points",
         "characters",
-        "mentor_portrait",
         "next_episode_hook",
         "continuity",
         "sources",
     ]
+    version = data.get("version", 1) if isinstance(data, dict) else 1
+    is_v2 = is_int(version) and version >= 2
+    if is_v2:
+        required += ["coverage"]
     if not require(data, required, path, report):
         return data
+    if "mentors" in data or "mentor_portrait" in data:
+        report.error(path, "v2 剧本不得包含导师字段 mentors/mentor_portrait")
 
     if not re.fullmatch(r"EP\d{2}", str(data["episode_id"])):
         report.error(path, f"episode_id 非法: {data['episode_id']}")
@@ -286,15 +425,15 @@ def validate_episode(path: Path, report: Report):
         report.error(path, "logline 至少 10 字")
 
     beats = data["beats"]
-    if not isinstance(beats, list) or len(beats) != 5:
-        report.error(path, "beats 必须为 5 段")
+    if not isinstance(beats, list) or len(beats) != 4:
+        report.error(path, "beats 必须为 4 段")
     else:
         total = 0.0
         indices = set()
         for beat in beats:
             if not require(beat, ["index", "name", "start_sec", "end_sec", "summary"], path, report):
                 continue
-            if not is_int(beat["index"]) or not 1 <= beat["index"] <= 5:
+            if not is_int(beat["index"]) or not 1 <= beat["index"] <= 4:
                 report.error(path, f"beat index 非法: {beat['index']}")
             indices.add(beat["index"])
             if not is_num(beat["start_sec"]) or not is_num(beat["end_sec"]):
@@ -303,10 +442,10 @@ def validate_episode(path: Path, report: Report):
             if beat["end_sec"] <= beat["start_sec"]:
                 report.error(path, f"beat {beat['index']} 结束时间必须大于开始时间")
             total += beat["end_sec"] - beat["start_sec"]
-        if indices != {1, 2, 3, 4, 5}:
-            report.error(path, f"beat index 必须覆盖 1-5，实际 {sorted(indices)}")
-        if not 170 <= total <= 190:
-            report.error(path, f"beats 总时长 {total:g}s，期望 170-190s")
+        if indices != {1, 2, 3, 4}:
+            report.error(path, f"beat index 必须覆盖 1-4，实际 {sorted(indices)}")
+        if not 200 <= total <= 220:
+            report.error(path, f"beats 总时长 {total:g}s，期望 200-220s")
 
     points = data["knowledge_points"]
     if not isinstance(points, list) or len(points) < 3:
@@ -324,12 +463,18 @@ def validate_episode(path: Path, report: Report):
     elif not all(nonempty_str(item) for item in characters):
         report.error(path, "characters 含空值")
 
-    mentor = data["mentor_portrait"]
-    if require(mentor, ["imagery", "metrics", "note"], path, report):
-        if "综合画像" not in str(mentor["note"]):
-            report.error(path, "mentor_portrait.note 必须含「综合画像」")
-        if not isinstance(mentor["metrics"], list) or not mentor["metrics"]:
-            report.error(path, "mentor_portrait.metrics 至少 1 条")
+    if is_v2:
+        coverage = data.get("coverage")
+        expected = load_expected_coverage(report)
+        if not isinstance(coverage, dict):
+            report.error(path, "coverage 必须是对象")
+        elif expected is not None:
+            for key in ("courses", "employment"):
+                actual = coverage.get(key)
+                if not isinstance(actual, list):
+                    report.error(path, f"coverage.{key} 必须是数组")
+                elif actual != expected[key]:
+                    report.error(path, f"coverage.{key} 必须与 L1 数据完全一致")
 
     continuity = data["continuity"]
     if require(continuity, ["prev_summary", "open_threads"], path, report):
@@ -356,6 +501,37 @@ def validate_episode(path: Path, report: Report):
 # ---------------------------------------------------------------- storyboard
 
 
+def validate_overlays(rows: list[dict], path: Path, total: float, constraints: dict, report: Report) -> None:
+    seen: set[str] = set()
+    kinds: dict[str, int] = {}
+    for index, row in enumerate(rows, start=2):
+        where = f"{path}:{index}"
+        overlay_id = (row.get("overlay_id") or "").strip()
+        if not re.fullmatch(r"O\d{3}", overlay_id):
+            report.error(where, f"overlay_id 非法: {overlay_id!r}")
+        if overlay_id in seen:
+            report.error(where, f"overlay_id 重复: {overlay_id}")
+        seen.add(overlay_id)
+        kind = (row.get("kind") or "").strip()
+        kinds[kind] = kinds.get(kind, 0) + 1
+        if not nonempty_str(row.get("title")) or not nonempty_str(row.get("body")):
+            report.error(where, "title/body 不得为空")
+        try:
+            start = float(row.get("start_sec", ""))
+            end = float(row.get("end_sec", ""))
+        except ValueError:
+            report.error(where, "start_sec/end_sec 不是数字")
+            continue
+        if end <= start:
+            report.error(where, "end_sec 必须大于 start_sec")
+        if start < 0 or end > total + 0.01:
+            report.error(where, f"信息卡时间越界: {start:g}-{end:g}s")
+    expected = constraints.get("overlay_kinds", {})
+    for kind, count in expected.items():
+        if kinds.get(kind, 0) != count:
+            report.error(path, f"{kind} 信息卡数量应为 {count}，实际 {kinds.get(kind, 0)}")
+
+
 def validate_storyboard(dir_path: Path, report: Report) -> None:
     if not dir_path.is_dir():
         report.error(dir_path, "目录不存在")
@@ -366,6 +542,8 @@ def validate_storyboard(dir_path: Path, report: Report) -> None:
     shots = read_csv(dir_path / "shots.csv", headers["shots"], report)
     dialogue = read_csv(dir_path / "dialogue.csv", headers["dialogue"], report)
     foley = read_csv(dir_path / "foley.csv", headers["foley"], report)
+    overlays_path = dir_path / "overlays.csv"
+    overlays = read_csv(overlays_path, headers["overlays"], report) if overlays_path.exists() else []
 
     shot_ids: list[str] = []
     dialogue_ids: set[str] = set()
@@ -387,10 +565,10 @@ def validate_storyboard(dir_path: Path, report: Report) -> None:
         shot_ids.append(shot_id)
         try:
             beat = int(row.get("beat", ""))
-            if not 1 <= beat <= 5:
+            if not 1 <= beat <= 4:
                 raise ValueError
         except ValueError:
-            report.error(where, f"beat 应为 1-5: {row.get('beat')!r}")
+            report.error(where, f"beat 应为 1-4: {row.get('beat')!r}")
         try:
             duration = float(row.get("duration_sec", ""))
             if not min_dur <= duration <= max_dur:
@@ -412,6 +590,8 @@ def validate_storyboard(dir_path: Path, report: Report) -> None:
         report.error(dir_path / "shots.csv", f"镜头数 {len(shots)}，期望 {min_count}-{max_count}")
     if not min_total <= total <= max_total:
         report.error(dir_path / "shots.csv", f"总时长 {total:g}s，期望 {min_total}-{max_total}s")
+    if overlays_path.exists():
+        validate_overlays(overlays, overlays_path, total, constraints, report)
 
     for index, row in enumerate(dialogue, start=2):
         where = f"{dir_path / 'dialogue.csv'}:{index}"
@@ -449,7 +629,7 @@ def validate_storyboard_file(path: Path, report: Report) -> None:
     headers = load_schema("storyboard_headers.json")
     constraints = headers.get("constraints", {})
     stem = path.stem
-    if stem not in ("shots", "dialogue", "foley"):
+    if stem not in ("shots", "dialogue", "foley", "overlays"):
         report.error(path, f"未知分镜文件: {path.name}")
         return
     rows = read_csv(path, headers[stem], report)
@@ -471,10 +651,10 @@ def validate_storyboard_file(path: Path, report: Report) -> None:
             used_shot_ids.add(shot_id)
             try:
                 beat = int(row.get("beat", ""))
-                if not 1 <= beat <= 5:
+                if not 1 <= beat <= 4:
                     raise ValueError
             except ValueError:
-                report.error(where, f"beat 应为 1-5: {row.get('beat')!r}")
+                report.error(where, f"beat 应为 1-4: {row.get('beat')!r}")
             try:
                 duration = float(row.get("duration_sec", ""))
                 if not min_dur <= duration <= max_dur:
@@ -514,6 +694,14 @@ def validate_storyboard_file(path: Path, report: Report) -> None:
                 report.error(where, "character 为空")
             if not nonempty_str(row.get("text")):
                 report.error(where, "text 为空")
+
+    elif stem == "overlays":
+        total = 0.0
+        shots_path = path.parent / "shots.csv"
+        if shots_path.exists():
+            shot_rows = read_csv(shots_path, headers["shots"], report)
+            total = sum(float(row.get("duration_sec") or 0) for row in shot_rows)
+        validate_overlays(rows, path, total, constraints, report)
 
     else:  # foley
         seen_cues: set[str] = set()
@@ -655,6 +843,9 @@ def validate_gate(episode: str, report: Report) -> None:
 
 def validate_all(report: Report) -> int:
     count = 0
+    for path in sorted((ROOT / "01_data" / "structured").glob("*.json")):
+        validate_l1_data(path, report)
+        count += 1
     for path in sorted((ROOT / "02_script" / "episodes").glob("EP*.json")):
         validate_episode(path, report)
         count += 1
@@ -793,6 +984,8 @@ def build_parser() -> argparse.ArgumentParser:
     lock.add_argument("path", nargs="?", default=None)
     sub.add_parser("docs", help="校验配置文档、代理、skill、settings")
     sub.add_parser("all", help="扫描并校验现有全部产物")
+    data = sub.add_parser("data", help="校验 L1 结构化专业数据")
+    data.add_argument("path")
     episode = sub.add_parser("episode", help="校验单集剧本")
     episode.add_argument("path")
     storyboard = sub.add_parser("storyboard", help="校验分镜三表")
@@ -818,6 +1011,8 @@ def main(argv: list[str] | None = None) -> int:
         validate_docs(report)
     elif args.command == "all":
         validate_all(report)
+    elif args.command == "data":
+        validate_l1_data(Path(args.path), report)
     elif args.command == "episode":
         validate_episode(Path(args.path), report)
     elif args.command == "storyboard":

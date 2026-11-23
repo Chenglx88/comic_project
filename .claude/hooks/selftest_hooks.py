@@ -98,11 +98,10 @@ def episode_obj() -> dict:
         "protagonist": "undecided",
         "logline": "少年在机枢城用算法修复失控的机械傀儡。",
         "beats": [
-            {"index": 1, "name": "开场", "start_sec": 0, "end_sec": 30, "summary": "晨雾中的机枢城"},
-            {"index": 2, "name": "冲突", "start_sec": 30, "end_sec": 70, "summary": "机械傀儡失控"},
-            {"index": 3, "name": "试炼", "start_sec": 70, "end_sec": 110, "summary": "用算法拆解问题"},
-            {"index": 4, "name": "转折", "start_sec": 110, "end_sec": 150, "summary": "发现异常指令"},
-            {"index": 5, "name": "收束", "start_sec": 150, "end_sec": 180, "summary": "修复并留下悬念"},
+            {"index": 1, "name": "开场", "start_sec": 0, "end_sec": 18, "summary": "晨雾中的机枢城"},
+            {"index": 2, "name": "课程", "start_sec": 18, "end_sec": 118, "summary": "用算法拆解问题"},
+            {"index": 3, "name": "就业", "start_sec": 118, "end_sec": 198, "summary": "算法工程师的日常"},
+            {"index": 4, "name": "收束", "start_sec": 198, "end_sec": 210, "summary": "修复并留下悬念"},
         ],
         "knowledge_points": [
             {"id": "K1", "title": "算法", "explain": "有限步骤解决问题",
@@ -112,12 +111,7 @@ def episode_obj() -> dict:
             {"id": "K3", "title": "复杂度", "explain": "衡量增长趋势",
              "misconception": "精确计时", "source_ref": "S3"},
         ],
-        "characters": ["烈", "镜", "导师"],
-        "mentor_portrait": {
-            "imagery": "白发教授立于齿轮穹顶下",
-            "metrics": ["人才称号", "引用与 h-index", "国家级奖项与学科评估"],
-            "note": "三项硬指标综合画像，非官方排名",
-        },
+        "characters": ["烈", "镜"],
         "next_episode_hook": "下一集将进入万象医馆。",
         "continuity": {"prev_summary": "首集", "open_threads": []},
         "sources": [
@@ -126,11 +120,11 @@ def episode_obj() -> dict:
     }
 
 
-def shots_csv(count: int = 45, duration: float = 4.0, duplicate: bool = False) -> str:
+def shots_csv(count: int = 45, duration: float = 4.6667, duplicate: bool = False) -> str:
     rows = []
     for index in range(1, count + 1):
         shot_id = "S001" if duplicate else f"S{index:03d}"
-        beat = min(5, (index - 1) // 9 + 1)
+        beat = min(4, (index - 1) // 12 + 1)
         rows.append(
             f"{shot_id},{beat},机枢城,中景,固定,{duration:g},角色动作,,S{index:03d}.json,"
         )

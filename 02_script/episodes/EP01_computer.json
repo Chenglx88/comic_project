@@ -1,0 +1,155 @@
+{
+  "version": 2,
+  "episode_id": "EP01",
+  "major": "计算机科学与技术",
+  "major_en": "computer",
+  "realm": "修仙境",
+  "protagonist": "lie",
+  "logline": "试炼者坠入修仙境藏经阁，以代码为剑破除“学计算机就是修电脑”的误区，在五大核心课程与就业路径的试炼中，为考生点亮选专业的第一盏明灯。",
+  "beats": [
+    {
+      "index": 1,
+      "name": "开场",
+      "start_sec": 0,
+      "end_sec": 18,
+      "summary": "试炼者坠入修仙境功法阵台，玉简散落揭示行业真相：“学计算机绝不是修电脑”。面对漫天代码符文，试炼者直面核心命题：这门专业到底学什么硬核内容？毕业后的出路究竟在哪？悬念抛出，试炼正式开启。"
+    },
+    {
+      "index": 2,
+      "name": "课程",
+      "start_sec": 18,
+      "end_sec": 118,
+      "summary": "试炼者连破五重功法结界：首闯“数据结构与算法”，掌握哈希表冲突与动态规划，完成最短路径可视化实战，练就时空复杂度权衡能力；次拆“计算机组成原理”机关，跑通五级流水线MIPS与Logisim仿真，具备定位硬件访存与计算瓶颈的硬功底；再入“操作系统”结界，演练进程调度与多线程信号量改造，复现并破解死锁，获得底层并发编程调优本领；跨越“计算机网络”云海，用抓包工具解析HTTPS握手与TCP拥塞窗口，修得网络分层排障与安全配置术；终锻“编译原理”熔炉，手写词法语法分析器并生成RISC-V汇编，彻底打通从人类代码到机器指令的转化链路。"
+    },
+    {
+      "index": 3,
+      "name": "就业",
+      "start_sec": 118,
+      "end_sec": 198,
+      "summary": "功法大成后试炼者展开五大去向卷轴：其一“后端/服务端开发工程师”，负责高并发接口设计与数据库调优，代表公司腾讯/阿里/华为，月薪约18-30K；其二“算法工程师（人工智能/机器学习）”，专注模型训练、特征工程与部署迭代，代表公司字节跳动/百度/商汤科技，月薪约25-45K；其三“前端/客户端开发工程师”，主攻交互实现、多端兼容与性能工程化，代表公司阿里巴巴/腾讯/小米，月薪约16-28K；其四“基础软件/系统研发工程师”，深耕操作系统/数据库内核开发与国产架构适配，代表公司华为/麒麟软件/腾讯云，月薪约18-32K；其五“测试开发/云原生运维（SRE）”，搭建自动化压测框架与K8s容器调度流水线，代表公司美团/京东/阿里云，月薪约12-22K。"
+    },
+    {
+      "index": 4,
+      "name": "收束",
+      "start_sec": 198,
+      "end_sec": 210,
+      "summary": "试炼者收拢卷轴顿悟：选专业只看两件事——课程定内功深浅，去向指破局之路。修仙境底层法则已验，下一卷《软件工程》的阵门正在虚空中凝聚，准备踏入团队协同与工程规范的新试炼。"
+    }
+  ],
+  "knowledge_points": [
+    {
+      "id": "cs01",
+      "title": "数据结构与算法",
+      "explain": "研究数据在计算机中如何高效存储与操作，通过大O渐进复杂度与算法设计思想（分治、动态规划等）寻找时空最优解。",
+      "misconception": "以为只是背诵几个排序公式，不懂如何根据业务场景做结构权衡与大规模数据测试。",
+      "source_ref": "https://www.bjeea.cn/html/ksb/gaozhaozhuanban/2026/0526/88138.html"
+    },
+    {
+      "id": "cs02",
+      "title": "计算机组成原理",
+      "explain": "揭示CPU如何用电信号完成计算，涵盖浮点表示、存储层次、指令流水线及总线I/O，建立软硬件交界认知。",
+      "misconception": "认为程序员只需写代码不用懂硬件，忽视访存瓶颈与底层调试对性能的决定性影响。",
+      "source_ref": "https://gaokao.chsi.com.cn/zyk/zybk/detail/73384816"
+    },
+    {
+      "id": "cs03",
+      "title": "操作系统",
+      "explain": "管理多程序并发运行的资源调度中枢，涉及进程线程状态、死锁银行家算法、分页内存与文件系统调度。",
+      "misconception": "以为装好环境就能跑程序，缺乏并发控制、资源隔离与系统级性能调优的基础概念。",
+      "source_ref": "https://www.cs.tsinghua.edu.cn/info/1053/3487.htm"
+    },
+    {
+      "id": "cs04",
+      "title": "计算机网络",
+      "explain": "构建跨设备数据可靠传输协议栈，从物理链路到TCP/IP四层，涵盖路由、拥塞控制与TLS安全握手。",
+      "misconception": "只要连上WiFi就能自动通网，不会使用抓包工具进行分层排障或理解网络延迟成因。",
+      "source_ref": "http://www.cs.zju.edu.cn/cs_cn/2022/0620/c25726a2598781/page.htm"
+    },
+    {
+      "id": "cs05",
+      "title": "编译原理",
+      "explain": "实现高级语言到机器指令的自动翻译，覆盖词法语法分析、中间表示、代码优化与目标代码生成。",
+      "misconception": "直接依赖现成编译器黑盒，遇到语法报错或运行慢时无法从词法/语法树层面定位根源。",
+      "source_ref": "http://staff.ustc.edu.cn/~yuzhang/compiler/"
+    }
+  ],
+  "characters": [
+    "试炼者"
+  ],
+  "coverage": {
+    "courses": [
+      "数据结构与算法",
+      "计算机组成原理",
+      "操作系统",
+      "计算机网络",
+      "编译原理"
+    ],
+    "employment": [
+      "后端/服务端开发工程师",
+      "算法工程师（人工智能/机器学习）",
+      "前端/客户端开发工程师",
+      "基础软件/系统研发工程师",
+      "测试开发/云原生运维（SRE）"
+    ]
+  },
+  "next_episode_hook": "修仙境的单兵功法已验，下一卷《软件工程》的阵门正在虚空中凝聚，试炼者将踏入需求分析、团队协作与版本控制的新试炼。",
+  "continuity": {
+    "prev_summary": "首集，无上集",
+    "open_threads": [
+      "试炼者如何在后续试炼中适应多人协同开发与复杂工程架构",
+      "五境共主赋予的通关令牌真实作用尚未揭示"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.bjeea.cn/html/ksb/gaozhaozhuanban/2026/0526/88138.html",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    },
+    {
+      "url": "https://gaokao.chsi.com.cn/zyk/zybk/detail/73384816",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    },
+    {
+      "url": "https://www.cs.tsinghua.edu.cn/info/1053/3487.htm",
+      "retrieved_at": "2026-11-22",
+      "year": 2025
+    },
+    {
+      "url": "http://www.cs.zju.edu.cn/cs_cn/2022/0620/c25726a2598781/page.htm",
+      "retrieved_at": "2026-11-22",
+      "year": 2022
+    },
+    {
+      "url": "http://staff.ustc.edu.cn/~yuzhang/compiler/",
+      "retrieved_at": "2026-11-22",
+      "year": 2024
+    },
+    {
+      "url": "https://join.tencent.com/campus/position",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    },
+    {
+      "url": "https://jobs.bytedance.com/campus/position",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    },
+    {
+      "url": "https://talent.alibaba.com/campus/position-list",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    },
+    {
+      "url": "https://career.huawei.com/reccampportal/portal5/campus-recruitment.html",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/campus",
+      "retrieved_at": "2026-11-22",
+      "year": 2026
+    }
+  ]
+}

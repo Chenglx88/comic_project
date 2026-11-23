@@ -1,0 +1,410 @@
+{
+  "episode": "EP01",
+  "shots": {
+    "S001": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S001_v2.mp4",
+      "sha256": "ae448b963502545db32657f7394edf432d42716c76db6589d5d49a579faca0a5",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S002": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S002_v2.mp4",
+      "sha256": "06ca068322bca4ac24aca5b5511f1caae3716fb398eef210aa7ab813bd258e33",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S003": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S003_v2.mp4",
+      "sha256": "bf70c32c67adfedb8979b18cd66a7fd4c1e8ffd48f3cc9e2f480ed354677e541",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S004": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S004_v2.mp4",
+      "sha256": "95ae66be487de647352eb372ed0fdcee2b2dcb6fb0069e192b0fc13b0f8a487c",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S005": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S005_v2.mp4",
+      "sha256": "406f12643a816c49588659f326ecbbf42cc56771709239aa930884de8fd78579",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S006": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S006_v2.mp4",
+      "sha256": "826c71a6f448fe4e0f98a0ef451d3e293505ceb396f1ca0a292049f9d462846e",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S007": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S007_v2.mp4",
+      "sha256": "3c9f0006eab8fed5374a8595b7b1fa2141ee9dbcf3fbdd4b7b435158dd09fe15",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S008": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S008_v2.mp4",
+      "sha256": "ceb54f36c383ec5b1019d9ad0e0b8209d5707c005ffffc34065cf33defabe91b",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S009": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S009_v2.mp4",
+      "sha256": "71a9514862ed014bf266cba71eaef2a22e420d612e1cbc4f7bb5b4e34a6a4399",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S010": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S010_v2.mp4",
+      "sha256": "491d60cfae82909ce1a48ecfadfd0b1e8bddd81638c44625cbcf83f2acca5864",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S011": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S011_v2.mp4",
+      "sha256": "61d906d228be3fb42a688b4e90f9704e9c02b7e295d8915c1e72e29d37d6e36d",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S012": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S012_v2.mp4",
+      "sha256": "5edca754c3102db258c7befd4fa475d9c1d7cf266b8eb39cf3c606e5f3d955da",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S013": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S013_v2.mp4",
+      "sha256": "def0cc6971419390e1638f1dbcfd7c9e7f69fe01130b474876d78d8215f96b34",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S014": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S014_v2.mp4",
+      "sha256": "045a5eb57b71b16f85806a2be331873064130e2cf0df1979608f35f911f033b3",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S015": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S015_v2.mp4",
+      "sha256": "54ff7206ffece99e8e42593bf1daa9b51a9690c8494b9b4124cac0cb2d9cb1e2",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S016": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S016_v2.mp4",
+      "sha256": "53b47fdea593e8098a8d841512f09f02163caf90c73a1b8d4839e8e304379df3",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S017": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S017_v2.mp4",
+      "sha256": "661b2357d9bc113328d32d1007671f1db230c5c6065dc2602840f888dc11a1a5",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S018": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S018_v2.mp4",
+      "sha256": "3f53c9e8b9e71142b3359932c7fb5eb7531d454be40fd4f91536a6d416bd7ca7",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S019": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S019_v2.mp4",
+      "sha256": "d96726486e08d027e4cbf6522d39ece3f4e38409a33ff80c0091c92172378b26",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S020": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S020_v2.mp4",
+      "sha256": "a56dbda7b9199a874729d57012e7cf17ce94939562739ab61a3197e7362b3375",
+      "duration_sec": 5.041667,
+      "api_duration_sec": 5,
+      "task_id": "953683760716323249",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S021": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S021_v2.mp4",
+      "sha256": "3cb533e516b9fd3e6fdfdeb7ab25cd4fd5f25c07f3857668353cfe8c4f8e278e",
+      "duration_sec": 10.041667,
+      "api_duration_sec": 10,
+      "task_id": "953685174691698258",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S022": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S022_v2.mp4",
+      "sha256": "3c0fe1fb2535a5966fa837d4e7d9abc89d83fef88623c0ce5aec7454aa3f2596",
+      "duration_sec": 5.041667,
+      "api_duration_sec": 5,
+      "task_id": "953685250260470242",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S023": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S023_v2.mp4",
+      "sha256": "4a6bb401208e463aacc47f95a9bfaaa69b88c79255432f3761ce978a9cab19d3",
+      "duration_sec": 5.041667,
+      "api_duration_sec": 5,
+      "task_id": "953684753390509714",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S024": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S024_v2.mp4",
+      "sha256": "0ddc91ce2a87dd9390437f49f2305902cd9b2c562a3f37afad6eccac9da331e1",
+      "duration_sec": 5.041667,
+      "api_duration_sec": 5,
+      "task_id": "953686901490847992",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S025": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S025_v2.mp4",
+      "sha256": "d1f84ecfeaf521db97d565186bb689c2a4cf00576ee7c15409ce43f614348908",
+      "duration_sec": 10.041667,
+      "api_duration_sec": 10,
+      "task_id": "953687421970419934",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S026": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S026_v2.mp4",
+      "sha256": "8b0b995a01562d5ba6f112d04f68ccd668c12d66417612d7f01b4a6aaa7bbe7f",
+      "duration_sec": 5.041667,
+      "api_duration_sec": 5,
+      "task_id": "953686100210887315",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S027": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S027_v2.mp4",
+      "sha256": "ccf756256e2092e8d0b1c0989a6fc3388cf0fe0c6dd0de55889102dcb85924b2",
+      "duration_sec": 5.041667,
+      "api_duration_sec": 5,
+      "task_id": "953687928432631264",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S028": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S028_v2.mp4",
+      "sha256": "3cd5a660347067da743af407775a3c0b697463e0a8dd74235a7302e5f42a6d2e",
+      "duration_sec": 10.041667,
+      "api_duration_sec": 10,
+      "task_id": "953687421970423782",
+      "units": null,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S029": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S029_v2.mp4",
+      "sha256": "d76df68a51f5617b0e4bc9a01cf5a98210c0cae6b57a4278e3757f05d65b364d",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S030": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S030_v2.mp4",
+      "sha256": "1f7a2e3cb3c9066929c7416a849ccdb5278e5931061bf30bca1339191e9e8224",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S031": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S031_v2.mp4",
+      "sha256": "66fb00b8a15ef03c9667db066be283fde31fb49c2e7fb1211b8edb211eb85715",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S032": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S032_v2.mp4",
+      "sha256": "7796f3e32ae8aa4afa1cf76cbafb3efb934918a03bc11925b21c446331bb66bf",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S033": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S033_v2.mp4",
+      "sha256": "5a628c89c877354affb25371fc764132409fc5aca2146c189917ed8139abb0b0",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S034": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S034_v2.mp4",
+      "sha256": "8780e989f03fc2bf5bee5df9de090430554734d72b4f75042739b2de6955eca8",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S035": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S035_v2.mp4",
+      "sha256": "606486c0b3dc79851ad5f2cf30b6c393ab2f53ff3ad4e0afef8cb464efa2377c",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S036": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S036_v2.mp4",
+      "sha256": "a439647efb058a191d5eb246a4a987946c56466d020699742d9caecdb57f79ed",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S037": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S037_v2.mp4",
+      "sha256": "462dd7cc0cadc2c52d99e508fec1dd7802c5fb87f1fe29e9dbe3ca848bd46daa",
+      "duration_sec": 10.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S038": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S038_v2.mp4",
+      "sha256": "6cea5dec57e3501fe28ec77e0b4f9a51a7760f28264c1a590ae2aafb42da5c6e",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S039": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S039_v2.mp4",
+      "sha256": "1495896f74446155da9cd5cc6e3a886f8cc8ef126ae01945f1fcfa87c235a0b2",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S040": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S040_v2.mp4",
+      "sha256": "d24bb434ee52a1f68ed153db6fb5b19317184c3af5dc8aaf6263b3c95fee45c7",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S041": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S041_v2.mp4",
+      "sha256": "d1dd52420a729cca7f1be809bdeac827c62deab962ca9b7610afc283e6f971de",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    },
+    "S042": {
+      "status": "done",
+      "path": "06_render/videos/EP01_computer_S042_v2.mp4",
+      "sha256": "9003d2b633311df31e88e0abfdbd51d45b13ba9de4b42177a427d53170cea3cb",
+      "duration_sec": 5.041667,
+      "provider": "kling",
+      "model": "kling-v3",
+      "error": ""
+    }
+  }
+}

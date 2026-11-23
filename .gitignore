@@ -28,3 +28,6 @@ credentials*
 05_assets/**/*.mp3
 05_assets/**/*.flac
 05_assets/**/*.m4a
+
+# 本地静态二进制（ffmpeg/ffprobe），不入库
+07_pipeline/bin/

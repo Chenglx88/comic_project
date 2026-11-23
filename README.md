@@ -57,15 +57,14 @@ comic_project/
 │   └── character_lock.schema.json
 ├── 01_data/
 │   ├── raw/                        # 原始检索结果
-│   ├── structured/                 # <major_en>.json 结构化数据
-│   └── rankings/                   # <major_en>.json 导师综合画像
+│   └── structured/                 # <major_en>.json 课程/就业结构化数据
 ├── 02_script/
 │   ├── world_bible.md              # 世界观与五境规则
 │   ├── character_bible.md          # 角色口癖与关系
 │   ├── episode_template.md         # 单集结构模板
 │   └── episodes/                   # EPnn_<major_en>.json
 ├── 03_storyboard/
-│   └── EPnn/                       # shots.csv / dialogue.csv / foley.csv
+│   └── EPnn/                       # shots.csv / dialogue.csv / foley.csv / overlays.csv
 ├── 04_prompts/
 │   ├── _shared/
 │   │   ├── protagonist.json        # 主角选择唯一权威
@@ -123,12 +122,14 @@ python3 .claude/scripts/validate.py gate EP01
 ## 3. 数据与外部工具
 
 - 专业数据：院校官网、教育部学科评估公开信息、公开学术数据库；每条必须带 URL、检索日期、年份。
-- 图像：NovelAI 或 ComfyUI（首镜文生图、后续图生图）。
-- 视频：可灵 / Vidu / Seedance 等图生视频工具。
+- 图像：即梦 / Seedream（火山方舟）或 ComfyUI（首镜文生图、后续图生图/参考图）。
+- 视频：可灵 Kling 3.0（`kling-3.0`）逐镜图生视频。
+- 配音：火山引擎 TTS（`seed-tts-2.0`，标准域 `/api/v3/tts/unidirectional`，不加 `/sse`）。
+- 合成：ffmpeg/ffprobe 7.0.2 静态二进制，位于 `07_pipeline/bin/`。
 - 后期：Live2D、After Effects、剪映。
 - API key 与凭据只放在本地环境变量，不进入仓库、不写入产物、不出现在会话中。
 
-本期不接入任何模型 API，不生成图片或视频；`07_pipeline/` 仅为后续代码预留。
+本期 E2E 测试按已确认的 LLM/媒体矩阵接入模型 API；密钥只放 `07_pipeline/config/.env`（或项目根 `.env`），不进入仓库。`07_pipeline/` 承载流水线代码。
 
 ## 4. 维护规则
 

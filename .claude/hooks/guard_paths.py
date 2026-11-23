@@ -16,12 +16,12 @@ import _hooklib as lib
 HOOK = "guard_paths"
 
 RESTRICTED = [
-    (re.compile(r"^01_data/(structured|rankings)/"), re.compile(r"^[a-z0-9_]+\.json$"),
+    (re.compile(r"^01_data/structured/"), re.compile(r"^[a-z0-9_]+\.json$"),
      "{专业英文}.json，如 computer_science.json"),
     (re.compile(r"^02_script/episodes/"), re.compile(r"^EP\d{2}_[a-z0-9_]+\.json$"),
      "EP{集号}_{专业英文}.json，如 EP01_computer.json"),
-    (re.compile(r"^03_storyboard/EP\d{2}/"), re.compile(r"^(shots|dialogue|foley)\.csv$"),
-     "shots.csv / dialogue.csv / foley.csv"),
+    (re.compile(r"^03_storyboard/EP\d{2}/"), re.compile(r"^(shots|dialogue|foley|overlays)\.csv$"),
+     "shots.csv / dialogue.csv / foley.csv / overlays.csv"),
     (re.compile(r"^04_prompts/EP\d{2}/"), re.compile(r"^S\d{3}\.json$"),
      "S{镜号三位}.json，如 S001.json"),
     (re.compile(r"^06_render/keyframes/|^06_render/videos/"),

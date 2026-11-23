@@ -1,0 +1,31 @@
+{
+  "shot_id": "S027",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120027,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 金色符文数字「18-30K」自去向卷轴·后端卷面纹理中浮现，笔画如符箓勾连、自体发暖金光，背景为虚化的卷轴纤维纹理与淡淡光路，特写，数字居中构图，浅景深，冷青底光衬托暖金字光，2D anime cel shading, clean lineart",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, gibberish text, random letters, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.55
+    }
+  },
+  "img2video": {
+    "prompt": "符文数字「18-30K」自卷面逐字浮现成形、金光渐强，固定镜头",
+    "first_frame": "06_render/keyframes/EP01_computer_S027_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "「18-30K」为剧情必需的界面数字，负面词以 gibberish text / random letters 替代 text 以放行该数字渲染；无角色出镜，未注入 prompt_prefix；参考图按本层规则指向首镜关键帧。"
+}

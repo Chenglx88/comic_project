@@ -7,3 +7,4 @@
 |:--|:--|:--|:--|:--|
 
 暂无记忆卡。
+| 01 | [01-acceptance-readonly-boundaries](01-acceptance-readonly-boundaries.md) | trap | acceptance/secret-scan | 验收不跑生成子命令；密钥扫描只报位置与关键词 |

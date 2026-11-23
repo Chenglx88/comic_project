@@ -1,26 +1,26 @@
 {
-  "version": 1,
-  "updated": "2026-11-21",
-  "notes": "未定选阶段 seed_range 为 null、prompt_prefix 为 pending。定选后由用户补全色值、seed 区间与真实前缀，并重算 character_lock_digest。",
+  "version": 3,
+  "updated": "2026-11-22",
+  "notes": "EP01 已定选 lie。lie 的色值、seed 区间、prompt_prefix 与三视图参考图已由用户确认；mirror 保持待定，双版本未启用。",
   "protagonists": {
     "lie": {
       "display_name": "烈",
-      "visual_anchors": ["蓬乱红发", "右颊一道疤", "护额纹样"],
+      "visual_anchors": ["蓬乱红发", "右颊一道疤", "金纹护额"],
       "palette": {
-        "status": "pending",
-        "hair": null,
-        "skin": null,
-        "primary": null,
-        "accent": null
+        "status": "approved",
+        "hair": "#B23A2B",
+        "skin": "#F1C9A5",
+        "primary": "#1E1B24",
+        "accent": "#C9A227"
       },
       "outfit": {
         "demo": "卷起袖子的现代校服",
-        "per_realm": "pending"
+        "per_realm": "修仙境：玄色短打外袍，红色腰带，胸前护额纹样；便于奔跑与攀爬"
       },
       "expressions": ["坚定", "错愕", "微笑", "怒", "沉思"],
-      "seed_range": null,
-      "reference_images": [],
-      "prompt_prefix": "pending"
+      "seed_range": [120000, 120999],
+      "reference_images": ["05_assets/characters/lie_ref_v1.png"],
+      "prompt_prefix": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark"
     },
     "mirror": {
       "display_name": "镜",

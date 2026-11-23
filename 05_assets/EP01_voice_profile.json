@@ -1,0 +1,33 @@
+{
+  "episode": "EP01",
+  "protagonist": "lie",
+  "voice_env": {
+    "protagonist": "VOLC_TTS_VOICE_LIE",
+    "mentor": "VOLC_TTS_VOICE_MENTOR"
+  },
+  "speed": 0,
+  "format": "mp3 24000Hz",
+  "samples": {
+    "D002": {
+      "character": "试炼者",
+      "text": "灵气像指令……这里由规则运行。",
+      "path": "05_assets/audio/EP01_D002_v1.mp3",
+      "duration_sec": 3.456,
+      "mean_volume_db": -21.4
+    },
+    "D005": {
+      "character": "试炼者",
+      "text": "缺的不是灵力，是组织法则。",
+      "path": "05_assets/audio/EP01_D005_v1.mp3",
+      "duration_sec": 2.664,
+      "mean_volume_db": -22.7
+    },
+    "D006": {
+      "character": "藏经阁老者",
+      "text": "先看结构，不背招式。",
+      "path": "05_assets/audio/EP01_D006_v1.mp3",
+      "duration_sec": 2.256,
+      "mean_volume_db": -23.1
+    }
+  }
+}

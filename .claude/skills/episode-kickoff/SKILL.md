@@ -29,7 +29,6 @@ argument-hint: <EPnn>
 | 检查 | 路径 |
 |:--|:--|
 | 结构化数据 | `01_data/structured/<major_en>.json` |
-| 导师画像 | `01_data/rankings/<major_en>.json` |
 | 世界观 | `02_script/world_bible.md` |
 | 角色圣经 | `02_script/character_bible.md` |
 | 上一集剧本 | `02_script/episodes/EP(n-1)_*.json`（EP01 除外） |

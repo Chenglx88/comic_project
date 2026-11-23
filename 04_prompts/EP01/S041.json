@@ -1,0 +1,31 @@
+{
+  "shot_id": "S041",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120041,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年立于阵台中央，双手微张，五重结界光环层层旋转收拢，凝聚成胸前一枚悬浮的璀璨光点，收束·阵台，黄昏，近景，人物居中，胸前光点为画面视觉焦点，背景阵台符文虚化，光点冷蓝白辉光镶金边作为主光源柔和照亮面部，2D anime cel shading, clean lineart",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.45
+    }
+  },
+  "img2video": {
+    "prompt": "五重结界光环层层旋转收拢，凝聚成一枚悬浮光点并渐渐增亮，镜头缓推",
+    "first_frame": "06_render/keyframes/EP01_computer_S041_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 4.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "以 S001 定标关键帧作 img2img 参考，锁定角色外观；分镜表 reference_shot=S040 仅作叙事衔接参考。对白见 D041。近景推镜幅度小，4 秒内只保留「结界收束成一点」单一主动作。"
+}

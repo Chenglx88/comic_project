@@ -1,0 +1,30 @@
+{
+  "shot_id": "S010",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120068,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年手掌按上青铜电路板，数字逻辑符文在指下亮起并沿铜线蔓延，机关阵台内部，近景，手部与上胸入画，面部在画面上方部分可见，电路板斜贯画面下方，冷蓝符文光自下方照亮面部，指尖泛暖金光点，2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7
+    }
+  },
+  "img2video": {
+    "prompt": "试炼者手掌按上电路板，数字逻辑符文自掌下亮起并向外蔓延，镜头跟拍手部",
+    "first_frame": "06_render/keyframes/EP01_computer_S010_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "img2img 参考首镜关键帧，建议 denoise 0.60；承接 S009；近景以手按电路板为主动作，符文亮起为结果动作；跟拍移动幅度小，重点盯手部结构（负面词已含 extra fingers、deformed hands）。"
+}

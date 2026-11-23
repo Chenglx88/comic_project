@@ -1,0 +1,32 @@
+{
+  "shot_id": "S021",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120210,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 源代码化作金色熔流泻入巨炉炉口，词法与语法符文光纹沿炉壁逐层燃起，少年立于炉前石台远望炉口，编译熔炉巨型大厅，全景，熔炉居中偏右，人物偏左下，视线朝向炉口，炉口暖橙主光，符文青蓝冷光点缀，火星与蒸汽悬浮，2D anime cel shading, clean lineart",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7,
+      "denoising_strength": 0.5
+    }
+  },
+  "img2video": {
+    "prompt": "源代码金色熔流持续泻入炉口，词法与语法光纹沿炉壁逐层燃起，镜头缓慢推近炉口",
+    "first_frame": "06_render/keyframes/EP01_computer_S021_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 6.0,
+      "fps": 24
+    }
+  },
+  "consistency": {
+    "method": "img2img",
+    "reference_image": "05_assets/characters/lie_ref_v1.png"
+  },
+  "notes": "落盘 04_prompts/EP01/S021.json；以首镜 S001 关键帧为 img2img 参考生成 S021 关键帧，再驱动图生视频；seed 固定于 lie 锁定区间；对应 D021；分镜 reference_shot=S020 仅作剧情连续性参考，不作为一致性参考。"
+}

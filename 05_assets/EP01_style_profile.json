@@ -1,0 +1,16 @@
+{
+  "episode": "EP01",
+  "visual_style": "2D anime cel shading, clean lineart",
+  "resolution": "1920x1080",
+  "fps": 30,
+  "palette": {
+    "status": "approved",
+    "hair": "#B23A2B",
+    "skin": "#F1C9A5",
+    "primary": "#1E1B24",
+    "accent": "#C9A227"
+  },
+  "outfit": "修仙境：玄色短打外袍，红色腰带，胸前护额纹样；便于奔跑与攀爬",
+  "keyframe_contact": "06_render/EP01/keyframes_contact_v3.png",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97"
+}

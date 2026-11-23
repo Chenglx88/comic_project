@@ -1,0 +1,30 @@
+{
+  "shot_id": "S001",
+  "protagonist": "lie",
+  "character_lock_ref": "04_prompts/_shared/character_lock.json",
+  "character_lock_digest": "sha256:855c70777d7de6882d2eb6ff3a1ed782be0b0d798f526830f2bba2e3fa17ff97",
+  "seed": 120000,
+  "text2img": {
+    "prompt": "1boy, 16 years old, messy crimson red hair, scar on right cheek, gold forehead protector, dark xianxia short robe with red sash, anime cel shading, clean lineart, consistent character design, no text, no watermark, 少年自虚空裂缝坠向功法阵台中央，双臂张开，红腰带与衣摆向上翻飞，玉简与发光代码符文在其四周四散爆开悬浮，修仙境·功法阵台，青石高台刻有同心环形符文大阵，远处浮空山与云海，大全景高角度俯视构图，人物居中偏小，黄昏顶光暖橙主光，符文青蓝辉光，2D anime cel shading",
+    "negative_prompt": "blurry, lowres, jpeg artifacts, extra fingers, extra limbs, deformed hands, text, watermark, signature, photorealistic, 3d render",
+    "params": {
+      "width": 1920,
+      "height": 1080,
+      "steps": 28,
+      "cfg_scale": 7
+    }
+  },
+  "img2video": {
+    "prompt": "少年自虚空坠入阵台，玉简与代码符文四散爆开，镜头自高空俯冲下降并推向阵台中央（升降+推）",
+    "first_frame": "06_render/keyframes/EP01_computer_S001_v2.png",
+    "last_frame": "",
+    "params": {
+      "duration_sec": 5.0
+    }
+  },
+  "consistency": {
+    "method": "text2img",
+    "reference_image": ""
+  },
+  "notes": "首镜定标：仅 text2img 生成关键帧 S001_v1，图生视频待关键帧确认后执行。主角已定选 lie，seed 固定 120000（区间起始）全 EP 复用。分镜运镜『俯冲』映射为升降+推。"
+}
