@@ -31,3 +31,9 @@ credentials*
 
 # 本地静态二进制（ffmpeg/ffprobe），不入库
 07_pipeline/bin/
+
+# 预览/contact sheet 媒体文件
+06_render/**/*.png
+06_render/**/*.jpg
+06_render/**/*.jpeg
+06_render/**/*.mp4
